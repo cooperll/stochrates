@@ -27,3 +27,7 @@ stochrates works like any other Go package. To fetch the package, just run:
 Currently, ginkgo and gomega are the libraries used for testing, on top of the built-in Golang testing functionality. Tests can be run from the stochrates base directory with the following command:
 
  ` go test -v ./... `
+ 
+ ## Documentation
+ 
+ At least for the beginning, stochrates will be using godoc.org as documentation: https://godoc.org/github.com/cooperll/stochrates
