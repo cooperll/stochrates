@@ -36,4 +36,4 @@ Currently, ginkgo and gomega are the libraries used for testing, on top of the b
  
  ## Documentation
  
- At least for the beginning, stochrates will be using godoc.org as documentation: https://godoc.org/github.com/cooperll/stochrates
+At least for the beginning, stochrates documentation can be found on pkg.go.dev: https://pkg.go.dev/mod/github.com/cooperll/stochrates
