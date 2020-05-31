@@ -7,11 +7,17 @@ To get involved, just open a ticket in "Issues", and I can send you an introduct
 ## Current work:
 
 For those interested in contributing, the next set of features stochrates is looking to add is:
+
 [x] nonparametric probability density estimation
+
 [ ] local polynomial regression/Nadaraya-Watson estimator
+
 [ ] artificial neural networks
+
 [ ] PCA
+
 [ ] bootstrapping
+
 [ ] Wavelets/Curvelets/Shearlets and respective regression methods
 
 
