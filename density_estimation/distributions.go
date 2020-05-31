@@ -6,15 +6,18 @@ type function interface {
 	At(float64) float64
 }
 
+// At returns the value of the PDF at x
 func (p *Pdf) At(x float64) float64 {
 	return p.density(x, p.sufficientStats)
 }
 
+// Represents a general probability density function
 type Pdf struct {
 	density         func(float64, []float64) float64
 	sufficientStats []float64
 }
 
+// The Gaussian/Normal pdf
 func Normal(mu float64, sigmaSquared float64) *Pdf {
 	sufficientStats := []float64{mu, sigmaSquared}
 	normalPdf := func(x float64, sufficientStats []float64) float64 {
@@ -27,6 +30,8 @@ func Normal(mu float64, sigmaSquared float64) *Pdf {
 
 }
 
+// Triangular pdf, where width is the total width of the distribution,
+// and the mode is always at 0.
 func Triangular(width float64) *Pdf {
 	sufficientStats := []float64{width}
 	density := func(x float64, sufficientStats []float64) float64 {
@@ -40,6 +45,7 @@ func Triangular(width float64) *Pdf {
 		sufficientStats: sufficientStats}
 }
 
+// The Uniform distribution, starting at a, ending at b
 func Uniform(a float64, b float64) *Pdf {
 	density := func(x float64, ss []float64) float64 {
 		if x <= b && x >= a {
@@ -51,6 +57,8 @@ func Uniform(a float64, b float64) *Pdf {
 		sufficientStats: []float64{a, b}}
 }
 
+// The Epanechnikov kernel/PDF. Primarily used for kernel density
+// estimation, so no arguments are passed (at the moment).
 func Epanechnikov() *Pdf {
 	return &Pdf{density: func(x float64, ss []float64) float64 {
 		if math.Abs(x) > 1 {

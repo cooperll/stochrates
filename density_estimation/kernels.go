@@ -1,5 +1,8 @@
 package density_estimation
 
+// Returns the kernel corresponding to name.
+// Currently supports: "rectangular", "gaussian", "triangular",
+// and "epanechnikov"
 func NewKernelByName(name string) *Pdf {
 	if name == "rectangular" {
 		return Uniform(-1, 1)
@@ -14,6 +17,7 @@ func NewKernelByName(name string) *Pdf {
 	}
 }
 
+// Creates a kernel/pdf given an explicitly user-defined pdf/density
 func NewKernelByFunc(density func(float64, []float64) float64) *Pdf {
 	return &Pdf{density: density}
 }
